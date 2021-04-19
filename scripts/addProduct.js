@@ -6,9 +6,21 @@ const ul = document.querySelector(".shopping-list")
 const addProductToList = () => {
     if (productInput.value !== '' && productInput.value[0] !== ' ') {
         const li = document.createElement("li")
+        const deleteButton = document.createElement("button")
+        deleteButton.appendChild(document.createTextNode("X"))
+        deleteButton.classList.add("delete-button")
         ul.appendChild(li)
+        // We need to add the input text and the delete button to each li
         li.appendChild(document.createTextNode(productInput.value))
+        li.appendChild(deleteButton)
         productInput.value = ''
+        //-------------------------------------------------------------------------
+        const deleteButtons = document.querySelectorAll(".delete-button")
+        deleteButtons.forEach(deleteButton => {
+            deleteButton.addEventListener('click', () => {
+                deleteButton.parentElement.remove()
+            })
+        })
     }
 }
 // function to add the input value on the add button
