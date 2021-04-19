@@ -1,8 +1,9 @@
 const addButton = document.querySelector(".add-button")
 const productInput = document.querySelector(".product-input")
+const ul = document.querySelector(".shopping-list")
 
-const shoppingList = []
-
-addButton.addEventListener('click', (e) => {
-    shoppingList.push(productInput.value)
+addButton.addEventListener('click', () => {
+    const li = document.createElement("li")
+    ul.appendChild(li)
+    li.appendChild(document.createTextNode(productInput.value))
 })
